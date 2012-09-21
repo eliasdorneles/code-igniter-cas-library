@@ -18,8 +18,9 @@ class Cas {
 
 	public function __construct(){
 		if (!function_exists('curl_init')){
-			show_error('<strong>ERROR:</strong> You need to install the PHP module <strong>curl</strong>
-				to be able to use CAS authentication.');
+			show_error('<strong>ERROR:</strong> You need to install the PHP module
+				<strong><a href="http://php.net/curl">curl</a></strong> to be able
+				to use CAS authentication.');
 		}
 		$CI =& get_instance();
 		$this->CI = $CI;
@@ -32,9 +33,12 @@ class Cas {
 			or filter_var($this->cas_server_url, FILTER_VALIDATE_URL) === FALSE) {
 			cas_show_config_error();
 		}
+		if (!file_exists($this->phpcas_path)) {
+			show_error("<strong>ERROR:</strong> Directory <code>$this->phpcas_path</code> does not exists");
+		}
 		$cas_lib_file = $this->phpcas_path . '/CAS.php';
 		if (!file_exists($cas_lib_file)){
-			show_error("Could not find file: <code>" . $cas_lib_file. "</code>");
+			show_error("<strong>ERROR:</strong> Could not find file <code>$cas_lib_file</code> in directory $this->phpcas_path");
 		}
 		require_once $cas_lib_file;
 
