@@ -33,12 +33,12 @@ class Cas {
 			or filter_var($this->cas_server_url, FILTER_VALIDATE_URL) === FALSE) {
 			cas_show_config_error();
 		}
-		if (!file_exists($this->phpcas_path)) {
-			show_error("<strong>ERROR:</strong> Directory <code>$this->phpcas_path</code> does not exists");
-		}
 		$cas_lib_file = $this->phpcas_path . '/CAS.php';
 		if (!file_exists($cas_lib_file)){
-			show_error("<strong>ERROR:</strong> Could not find file <code>$cas_lib_file</code> in directory $this->phpcas_path");
+			show_error("<strong>ERROR:</strong> Could not find a file <em>CAS.php</em> in directory
+				<strong>$this->phpcas_path</strong><br /><br />
+				Please, check your config file <strong>config/cas.php</strong> and make sure the
+				configuration <em>phpcas_path</em> is a valid phpCAS installation.");
 		}
 		require_once $cas_lib_file;
 
