@@ -7,8 +7,12 @@ Installing manually
 ===================
 
 1. Download [phpCAS][1] and put it in some accessible directory.
+
 2. Copy `libraries/Cas.php` into your CodeIgniter application's `libraries` folder
+
 3. Create a config file `config/cas.php` like this:
+
+<span/>
 
     <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
     $config['cas_server_url'] = 'https://yourserver.com/cas';
@@ -16,7 +20,9 @@ Installing manually
     $config['cas_disable_server_validation'] = TRUE;
     // $config['cas_debug'] = TRUE; // <--  use this to enable phpCAS debug mode
 
+
 That's it, now you can test in a controller, doing something like this:
+
 
     function index() {
         $this->load->library('cas');
