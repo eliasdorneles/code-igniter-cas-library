@@ -1,6 +1,8 @@
 Code Igniter CAS Library
 ========================
 
+## Attention: No longer maintained! Please reach out if you're interested in maintaining this library
+
 This CodeIgniter library wraps around [phpCAS][1] (the official [CAS](http://en.wikipedia.org/wiki/Central_Authentication_Service) client from [Jasig](http://www.jasig.org)) to simplify use and configuration in a [CodeIgniter](http://www.codeigniter.com/) app.
 
 Installing manually
