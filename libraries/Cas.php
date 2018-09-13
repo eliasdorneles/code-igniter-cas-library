@@ -50,8 +50,10 @@ class Cas {
 		$defaults = array('path' => '', 'port' => 443);
 		$cas_url = array_merge($defaults, parse_url($this->cas_server_url));
 
-		phpCAS::client(CAS_VERSION_2_0, $cas_url['host'],
-			$cas_url['port'], $cas_url['path']);
+		if(isset($_SESSION))  
+        		phpCAS::client(CAS_VERSION_2_0, $cas_url['host'], $cas_url['port'], $cas_url['path'], false);  //use CoeIgniter 3.0 session
+    		else 
+        		phpCAS::client(CAS_VERSION_2_0, $cas_url['host'], $cas_url['port'], $cas_url['path']); //let phpCAS manage the session
 
 		// configures SSL behavior
 		if ($CI->config->item('cas_disable_server_validation')){
